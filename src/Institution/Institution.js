@@ -40,20 +40,25 @@ export const Institution = {
                name: "id",
                message: "Enter the institution id: "
           });
-          const res = await Server.get(`${Endpoints.institution}/${id}`);
-          if(res){
-               figlet('Institution Found', (err, data) => {
-                    if (err) {
-                         console.log('Something went wrong...');
-                         console.dir(err);
-                         return;
-                    }
-                    console.log(data); 
-                    console.table(res);
-               });
-          }else {
-               console.log('insitution not found');
+          if(id) {
+               const res = await Server.get(`${Endpoints.institution}/${id}`);
+               if(res){
+                    figlet('Institution Found', (err, data) => {
+                         if (err) {
+                              console.log('Something went wrong...');
+                              console.dir(err);
+                              return;
+                         }
+                         console.log(data); 
+                         console.table(res);
+                    });
+               }else {
+                    console.log('insitution not found');
+               }
+          }else{
+               console.log('invalid institution id');
           }
+          
      },
      display:async () => {
           const res = await Server.get(Endpoints.institution);

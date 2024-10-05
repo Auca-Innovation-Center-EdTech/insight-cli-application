@@ -2,12 +2,13 @@ import figlet from "figlet";
 import { Institution } from "./Institution.js";
 import inquirer from "inquirer";
 import { Endpoints, Server } from "../Server.js";
+import { getFigletText } from "../utility/DisplayFunc.js";
+import gradient from "gradient-string";
 
 export const InstitutionPrompt = async () => {
 
-     figlet(`Institution Management`, function(error, data){
-          console.log(gradient.passion.multiline(data));
-     });
+     const textMessage = await getFigletText('Institution Management');
+     console.log(gradient.passion.multiline(textMessage));
 
      const institutions = await Server.get(Endpoints.institution);
      
@@ -32,16 +33,16 @@ export const InstitutionPrompt = async () => {
 
      switch(choice){
           case 'add':
-               Institution.add();
+               await Institution.add();
                break;
           case 'search':
-               Institution.search();
+               await Institution.search();
                break;
           case 'display':
-               Institution.display();
+               await Institution.display();
                break;
           case 'delete':
-               Institution.delete();
+               await Institution.delete();
           default: 
                console.log('not yet implement');
           
