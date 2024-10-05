@@ -1,0 +1,23 @@
+{
+  "name": "insight-cli",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "command interface client app for the insight system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Dushime Brother",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "cli-table3": "^0.6.5",
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.5",
+    "figlet": "^1.7.0",
+    "gradient-string": "^3.0.0",
+    "inquirer": "^11.1.0",
+    "insight-cli": "file:"
+  }
+}
